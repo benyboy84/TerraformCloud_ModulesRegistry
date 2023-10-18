@@ -114,7 +114,7 @@ Default: `null`
 
 ### <a name="input_vcs_repo"></a> [vcs\_repo](#input\_vcs\_repo)
 
-Description:   (Optional) (Optional) Settings for the registry module's VCS repository. Forces a new resource if changed. One of `vcs_repo` or `module_provider` is required.  
+Description:   (Optional) Settings for the registry module's VCS repository. Forces a new resource if changed. One of `vcs_repo` or `module_provider` is required.  
     display\_identifier         = (Required) The display identifier for your VCS repository. For most VCS providers outside of BitBucket Cloud, this will match the `identifier` string.  
     identifier                 = (Required) A reference to your VCS repository in the format `<organization>/<repository>` where `<organization>` and `<repository>` refer to the organization (or project key, for Bitbucket Server) and repository in your VCS provider. The format for Azure DevOps is //\_git/.  
     oauth\_token\_id             = (Optional) Token ID of the VCS Connection (OAuth Connection Token) to use. This conflicts with `github_app_installation_id` and can only be used if `github_app_installation_id` is not used.  
