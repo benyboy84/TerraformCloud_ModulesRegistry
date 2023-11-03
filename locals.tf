@@ -17,13 +17,13 @@ locals {
     #     oauth_token_id     = data.tfe_oauth_client.client.oauth_token_id
     #   }
     # }
-    # "terraform-azurerm-key_vault" = {
-    #   vcs_repo = {
-    #     display_identifier = "benyboy84/terraform-azurerm-key_vault"
-    #     identifier         = "benyboy84/terraform-azurerm-key_vault"
-    #     oauth_token_id     = data.tfe_oauth_client.client.oauth_token_id
-    #   }
-    # }
+    "terraform-azurerm-key_vault" = {
+      vcs_repo = {
+        display_identifier = "benyboy84/terraform-azurerm-key_vault"
+        identifier         = "benyboy84/terraform-azurerm-key_vault"
+        oauth_token_id     = data.tfe_oauth_client.client.oauth_token_id
+      }
+    }
   }
 
 }
