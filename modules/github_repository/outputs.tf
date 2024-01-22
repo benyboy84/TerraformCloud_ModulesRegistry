@@ -92,22 +92,22 @@ output "branches" {
   value       = { for github_branch in github_branch.this : github_branch.name => github_branch }
 }
 
-output "source_sha" {
+output "branches_source_sha" {
   description = "A string storing the commit this branch was started from. Not populated when imported."
   value       = { for github_branch in github_branch.this : github_branch.name => github_branch.source_sha }
 }
 
-output "etag" {
+output "branches_etag" {
   description = "An etag representing the Branch object."
   value       = { for github_branch in github_branch.this : github_branch.name => github_branch.etag }
 }
 
-output "ref" {
+output "branches_ref" {
   description = "A string representing a branch reference, in the form of refs/heads/<branch>."
   value       = { for github_branch in github_branch.this : github_branch.name => github_branch.ref }
 }
 
-output "sha" {
+output "branches_sha" {
   description = "A string storing the reference's HEAD commit's SHA1."
   value       = { for github_branch in github_branch.this : github_branch.name => github_branch.sha }
 }
@@ -117,17 +117,17 @@ output "files" {
   value       = { for file in github_repository_file.this : file.file => file }
 }
 
-output "commit_sha" {
+output "files_commit_sha" {
   description = "The SHA of the commit that modified the file."
   value       = { for file in github_repository_file.this : file.file => file.commit_sha }
 }
 
-output "sha" {
+output "files_sha" {
   description = "The SHA blob of the file."
   value       = { for file in github_repository_file.this : file.file => file.sha }
 }
 
-output "ref" {
+output "files_ref" {
   description = "The name of the commit/branch/tag."
   value       = { for file in github_repository_file.this : file.file => file.ref }
 }

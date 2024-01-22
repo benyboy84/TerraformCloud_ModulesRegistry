@@ -564,21 +564,41 @@ Description: GitHub branch protection within your GitHub repository.
 
 Description: Branches within your repository.
 
-### <a name="output_commit_sha"></a> [commit\_sha](#output\_commit\_sha)
+### <a name="output_branches_etag"></a> [branches\_etag](#output\_branches\_etag)
 
-Description: The SHA of the commit that modified the file.
+Description: An etag representing the Branch object.
+
+### <a name="output_branches_ref"></a> [branches\_ref](#output\_branches\_ref)
+
+Description: A string representing a branch reference, in the form of refs/heads/<branch>.
+
+### <a name="output_branches_sha"></a> [branches\_sha](#output\_branches\_sha)
+
+Description: A string storing the reference's HEAD commit's SHA1.
+
+### <a name="output_branches_source_sha"></a> [branches\_source\_sha](#output\_branches\_source\_sha)
+
+Description: A string storing the commit this branch was started from. Not populated when imported.
 
 ### <a name="output_created_at"></a> [created\_at](#output\_created\_at)
 
 Description: Date of actions\_secret creation.
 
-### <a name="output_etag"></a> [etag](#output\_etag)
-
-Description: An etag representing the Branch object.
-
 ### <a name="output_files"></a> [files](#output\_files)
 
 Description: Files within your repository.
+
+### <a name="output_files_commit_sha"></a> [files\_commit\_sha](#output\_files\_commit\_sha)
+
+Description: The SHA of the commit that modified the file.
+
+### <a name="output_files_ref"></a> [files\_ref](#output\_files\_ref)
+
+Description: The name of the commit/branch/tag.
+
+### <a name="output_files_sha"></a> [files\_sha](#output\_files\_sha)
+
+Description: The SHA blob of the file.
 
 ### <a name="output_full_name"></a> [full\_name](#output\_full\_name)
 
@@ -611,10 +631,6 @@ Description:   The block consisting of the repository's GitHub Pages configurati
 
 Description: The primary language used in the repository.
 
-### <a name="output_ref"></a> [ref](#output\_ref)
-
-Description: The name of the commit/branch/tag.
-
 ### <a name="output_repo_id"></a> [repo\_id](#output\_repo\_id)
 
 Description: GitHub ID for the repository.
@@ -622,14 +638,6 @@ Description: GitHub ID for the repository.
 ### <a name="output_repository"></a> [repository](#output\_repository)
 
 Description: Repositories within your GitHub organization.
-
-### <a name="output_sha"></a> [sha](#output\_sha)
-
-Description: The SHA blob of the file.
-
-### <a name="output_source_sha"></a> [source\_sha](#output\_source\_sha)
-
-Description: A string storing the commit this branch was started from. Not populated when imported.
 
 ### <a name="output_ssh_clone_url"></a> [ssh\_clone\_url](#output\_ssh\_clone\_url)
 
