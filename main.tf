@@ -41,7 +41,7 @@ module "repository" {
   files = [
     {
       file    = ".gitignore" 
-      content = file("./Data/.gitignore")
+      content = file("./data/.gitignore")
     }
   ]
   # branches = [for branch in try(each.value.github_repository.branches, []) :
