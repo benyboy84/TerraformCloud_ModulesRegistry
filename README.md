@@ -83,7 +83,7 @@ The following Modules are called:
 
 ### <a name="module_modules"></a> [modules](#module\_modules)
 
-Source: ./modules/module
+Source: ./modules/tfe_module
 
 Version:
 
