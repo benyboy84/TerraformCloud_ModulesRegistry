@@ -176,6 +176,7 @@ resource "github_branch" "this" {
 
 resource "github_repository_file" "this" {
   for_each            = { for file in var.files : file.file => file }
+  repository          = github_repository.this.name
   file                = each.value.file
   content             = each.value.content
   branch              = each.value.branch
