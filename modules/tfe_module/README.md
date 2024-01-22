@@ -31,7 +31,7 @@ to authenticate.
 ## Usage example
 ```hcl
 module "module" {
-  source = "./modules/module"
+  source = "./modules/tfe_module"
 
   vcs_repo = {
     display_identifier = "orgs/pepo"
