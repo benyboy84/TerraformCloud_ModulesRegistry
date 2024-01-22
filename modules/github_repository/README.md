@@ -5,11 +5,8 @@ of all your GitHub repository configuration.
 
 ## Permissions
 
-To manage the GitHub resources, provide a user token from an account or a GitHub App with 
-appropriate permissions. This user should have `owner` permission on the organization.
-
-Otherwise, it should have `repository creation` and `create teams` permission on the organization.
-Once the repository is created, `admin` permission will be granted to the user who created that repository.
+To manage the GitHub resources, provide a token from an account or a GitHub App with 
+appropriate permissions. It should have `repository creation` and `manage actions repository secrets`.
 
 ## Authentication
 
@@ -100,10 +97,36 @@ The following resources are used by this module:
 - [github_branch.this](https://registry.terraform.io/providers/integrations/github/5.44.0/docs/resources/branch) (resource)
 - [github_branch_protection.this](https://registry.terraform.io/providers/integrations/github/5.44.0/docs/resources/branch_protection) (resource)
 - [github_repository.this](https://registry.terraform.io/providers/integrations/github/5.44.0/docs/resources/repository) (resource)
+- [github_repository_file.this](https://registry.terraform.io/providers/integrations/github/5.44.0/docs/resources/repository_file) (resource)
 
 ## Required Inputs
 
 The following input variables are required:
+
+### <a name="input_files"></a> [files](#input\_files)
+
+Description:   (Optional) The files block supports the following:  
+    file                : (Required) The path of the file to manage.  
+    content             : (Required) The file content.  
+    branch              : (Optional) Git branch (defaults to the repository's default branch). The branch must already exist, it will not be created if it does not already exist.  
+    commit\_author       : (Optional) Committer author name to use. NOTE: GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits.  
+    commit\_email        : (Optional) Committer email address to use. NOTE: GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This may be useful when a branch protection rule requires signed commits.  
+    commit\_message      : (Optional) Commit message when adding or updating the managed file.  
+    overwrite\_on\_create : (Optional) Enable overwriting existing files
+
+Type:
+
+```hcl
+list(object({
+    file                = string
+    content             = string
+    branch              = optional(string, null)
+    commit_author       = optional(string, null)
+    commit_email        = optional(string, null)
+    commit_message      = optional(string, null)
+    overwrite_on_create = optional(bool, false)
+  }))
+```
 
 ### <a name="input_name"></a> [name](#input\_name)
 
@@ -525,6 +548,10 @@ Default: `false`
 
 The following outputs are exported:
 
+### <a name="output_actions_repository_permissions"></a> [actions\_repository\_permissions](#output\_actions\_repository\_permissions)
+
+Description: GitHub Actions permissions for your repository.
+
 ### <a name="output_actions_secret"></a> [actions\_secret](#output\_actions\_secret)
 
 Description: GitHub Actions secrets within your GitHub repository.
@@ -532,6 +559,14 @@ Description: GitHub Actions secrets within your GitHub repository.
 ### <a name="output_branch_protection"></a> [branch\_protection](#output\_branch\_protection)
 
 Description: GitHub branch protection within your GitHub repository.
+
+### <a name="output_branches"></a> [branches](#output\_branches)
+
+Description: Branches within your repository.
+
+### <a name="output_commit_sha"></a> [commit\_sha](#output\_commit\_sha)
+
+Description: The SHA of the commit that modified the file.
 
 ### <a name="output_created_at"></a> [created\_at](#output\_created\_at)
 
@@ -541,6 +576,10 @@ Description: Date of actions\_secret creation.
 
 Description: An etag representing the Branch object.
 
+### <a name="output_files"></a> [files](#output\_files)
+
+Description: Files within your repository.
+
 ### <a name="output_full_name"></a> [full\_name](#output\_full\_name)
 
 Description: A string of the form "orgname/reponame".
@@ -548,18 +587,6 @@ Description: A string of the form "orgname/reponame".
 ### <a name="output_git_clone_url"></a> [git\_clone\_url](#output\_git\_clone\_url)
 
 Description: URL that can be provided to git clone to clone the repository anonymously via the git protocol.
-
-### <a name="output_github_actions_repository_permissions"></a> [github\_actions\_repository\_permissions](#output\_github\_actions\_repository\_permissions)
-
-Description: GitHub Actions permissions for your repository.
-
-### <a name="output_github_branch"></a> [github\_branch](#output\_github\_branch)
-
-Description: Branches within your repository.
-
-### <a name="output_github_repository"></a> [github\_repository](#output\_github\_repository)
-
-Description: Repositories within your GitHub organization.
 
 ### <a name="output_html_url"></a> [html\_url](#output\_html\_url)
 
@@ -586,15 +613,19 @@ Description: The primary language used in the repository.
 
 ### <a name="output_ref"></a> [ref](#output\_ref)
 
-Description: A string representing a branch reference, in the form of refs/heads/<branch>.
+Description: The name of the commit/branch/tag.
 
 ### <a name="output_repo_id"></a> [repo\_id](#output\_repo\_id)
 
 Description: GitHub ID for the repository.
 
+### <a name="output_repository"></a> [repository](#output\_repository)
+
+Description: Repositories within your GitHub organization.
+
 ### <a name="output_sha"></a> [sha](#output\_sha)
 
-Description: A string storing the reference's HEAD commit's SHA1.
+Description: The SHA blob of the file.
 
 ### <a name="output_source_sha"></a> [source\_sha](#output\_source\_sha)
 

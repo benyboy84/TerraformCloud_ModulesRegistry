@@ -38,6 +38,12 @@ module "repository" {
     github_owned_allowed = true
     patterns_allowed     = ["terraform-docs/gh-actions@*", "super-linter/super-linter@*", "rymndhng/release-on-push-action@*", "hashicorp/*"]
   }
+  files = [
+    {
+      file    = ".gitignore" 
+      content = file("./Data/.gitignore")
+    }
+  ]
   # branches = [for branch in try(each.value.github_repository.branches, []) :
   #   {
   #     branch        = branch.branch

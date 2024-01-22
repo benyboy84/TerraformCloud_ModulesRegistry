@@ -173,3 +173,14 @@ resource "github_branch" "this" {
   branch        = each.value.branch
   source_branch = each.value.source_branch
 }
+
+resource "github_repository_file" "this" {
+  for_each            = { for file in var.files : file.file => file }
+  file                = each.value.file
+  content             = each.value.content
+  branch              = each.value.branch
+  commit_author       = each.value.commit_author
+  commit_email        = each.value.commit_email
+  commit_message      = each.value.commit_message
+  overwrite_on_create = each.value.overwrite_on_create
+}
