@@ -49,7 +49,7 @@ module "repository" {
 # The following code block is used to create module resources in the private registry.
 
 module "modules" {
-  source = "./modules/module"
+  source = "./modules/tfe_module"
 
   for_each = toset(var.modules_name)
 
