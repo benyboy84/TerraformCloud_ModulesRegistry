@@ -89,27 +89,27 @@ output "actions_repository_permissions" {
 
 output "branches" {
   description = "Branches within your repository."
-  value       = { for github_branch in github_branch.this : github_branch.name => github_branch }
+  value       = { for github_branch in github_branch.this : github_branch.branch => github_branch }
 }
 
 output "branches_source_sha" {
   description = "A string storing the commit this branch was started from. Not populated when imported."
-  value       = { for github_branch in github_branch.this : github_branch.name => github_branch.source_sha }
+  value       = { for github_branch in github_branch.this : github_branch.branch => github_branch.source_sha }
 }
 
 output "branches_etag" {
   description = "An etag representing the Branch object."
-  value       = { for github_branch in github_branch.this : github_branch.name => github_branch.etag }
+  value       = { for github_branch in github_branch.this : github_branch.branch => github_branch.etag }
 }
 
 output "branches_ref" {
   description = "A string representing a branch reference, in the form of refs/heads/<branch>."
-  value       = { for github_branch in github_branch.this : github_branch.name => github_branch.ref }
+  value       = { for github_branch in github_branch.this : github_branch.branch => github_branch.ref }
 }
 
 output "branches_sha" {
   description = "A string storing the reference's HEAD commit's SHA1."
-  value       = { for github_branch in github_branch.this : github_branch.name => github_branch.sha }
+  value       = { for github_branch in github_branch.this : github_branch.branch => github_branch.sha }
 }
 
 output "files" {
