@@ -1,4 +1,3 @@
 provider "tfe" {}
 
-provider "github" {
-}
+provider "github" {}
