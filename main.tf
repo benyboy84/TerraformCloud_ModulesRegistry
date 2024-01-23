@@ -83,6 +83,8 @@ resource "tfe_registry_module" "this" {
 
   for_each = toset(var.modules_name)
 
+  organization = var.organization_name
+
   test_config {
     tests_enabled = true
   }
