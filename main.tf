@@ -36,7 +36,27 @@ resource "github_repository" "this" {
   # allow_update_branch                     = false
 }
 
+resource "github_branch_protection" "this" {
+  
+  for_each = toset(var.modules_name)
+  
+  repository_id                   = github_repository.this[each.value].name
+  pattern                         = "main"
+  enforce_admins                  = true
+  require_conversation_resolution = true
 
+  # required_status_checks {
+  #   strict   = 
+  #   contexts = 
+  # }
+
+  required_pull_request_reviews {
+    dismiss_stale_reviews           = true
+    require_code_owner_reviews      = true
+    required_approving_review_count = "0"
+  }
+
+}
 
 
 # The following block is use to get information about an OAuth client.
