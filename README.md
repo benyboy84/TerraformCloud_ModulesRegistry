@@ -81,13 +81,8 @@ The following requirements are needed by this module:
 
 ## Modules
 
-The following Modules are called:
 
-### <a name="module_repository"></a> [repository](#module\_repository)
 
-Source: ./modules/github_repository
-
-Version:
 
 ## Required Inputs
 
@@ -119,6 +114,7 @@ No optional inputs.
 
 The following resources are used by this module:
 
+- [github_repository.test](https://registry.terraform.io/providers/integrations/github/5.44.0/docs/resources/repository) (resource)
 - [tfe_oauth_client.client](https://registry.terraform.io/providers/hashicorp/tfe/0.48.0/docs/data-sources/oauth_client) (data source)
 
 ## Outputs
