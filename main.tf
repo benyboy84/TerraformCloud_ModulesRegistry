@@ -24,10 +24,10 @@ resource "github_repository" "this" {
     # advanced_security = {
     #   status = try(each.value.github_repository.security_and_analysis.advanced_security.status, null)
     # }
-    secret_scanning = {
+    secret_scanning {
       status = "enabled"
     }
-    secret_scanning_push_protection = {
+    secret_scanning_push_protection {
       status = "enabled"
     }
   }
