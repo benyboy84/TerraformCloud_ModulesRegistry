@@ -77,7 +77,7 @@ resource "github_repository_file" "this" {
  
   repository          = github_repository.this[each.value].name
   file                = ".gitignore"
-  content             = file("./date/.gitignore")
+  content             = file("./data/.gitignore")
 
 }
 
