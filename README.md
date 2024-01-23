@@ -116,6 +116,7 @@ The following resources are used by this module:
 - [github_actions_repository_permissions.this](https://registry.terraform.io/providers/integrations/github/5.44.0/docs/resources/actions_repository_permissions) (resource)
 - [github_branch_protection.this](https://registry.terraform.io/providers/integrations/github/5.44.0/docs/resources/branch_protection) (resource)
 - [github_repository.this](https://registry.terraform.io/providers/integrations/github/5.44.0/docs/resources/repository) (resource)
+- [github_repository_file.this](https://registry.terraform.io/providers/integrations/github/5.44.0/docs/resources/repository_file) (resource)
 - [tfe_oauth_client.client](https://registry.terraform.io/providers/hashicorp/tfe/0.48.0/docs/data-sources/oauth_client) (data source)
 
 ## Outputs
