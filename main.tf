@@ -50,12 +50,11 @@ module "repository" {
       content = file("./data/.gitignore")
     }
   ]
-  # branches = [for branch in try(each.value.github_repository.branches, []) :
-  #   {
-  #     branch        = branch.branch
-  #     source_branch = try(branch.source_branch, "main")
-  #   }
-  # ]
+  branches = [
+    {
+      branch        = "test"
+    }
+  ]
 }
 
 # The following code block is used to create module resources in the private registry.
