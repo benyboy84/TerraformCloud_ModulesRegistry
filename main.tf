@@ -68,7 +68,7 @@ resource "github_actions_repository_permissions" "this" {
     github_owned_allowed = true
     patterns_allowed     = ["terraform-docs/gh-actions@*", "super-linter/super-linter@*", "rymndhng/release-on-push-action@*", "hashicorp/*"]
   }
-  
+
 }
 
 resource "github_repository_file" "this" {
@@ -77,7 +77,7 @@ resource "github_repository_file" "this" {
  
   repository          = github_repository.this[each.value].name
   file                = ".gitignore"
-  content             = file(./date/.gitignore)
+  content             = file("./date/.gitignore")
 
 }
 
