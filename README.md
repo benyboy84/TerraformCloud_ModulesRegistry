@@ -73,11 +73,11 @@ Variable-set must be linked to the workspace for GitHub Authentication.
 
 The following requirements are needed by this module:
 
-- <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) (> 1.3.1)
+- <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) (> 1.6.0)
 
 - <a name="requirement_github"></a> [github](#requirement\_github) (5.44.0)
 
-- <a name="requirement_tfe"></a> [tfe](#requirement\_tfe) (0.48.0)
+- <a name="requirement_tfe"></a> [tfe](#requirement\_tfe) (0.51.1)
 
 ## Modules
 
@@ -86,6 +86,12 @@ No modules.
 ## Required Inputs
 
 The following input variables are required:
+
+### <a name="input_github_organization_name"></a> [github\_organization\_name](#input\_github\_organization\_name)
+
+Description: Name of the GitHub organization.
+
+Type: `string`
 
 ### <a name="input_modules_name"></a> [modules\_name](#input\_modules\_name)
 
@@ -117,7 +123,8 @@ The following resources are used by this module:
 - [github_branch_protection.this](https://registry.terraform.io/providers/integrations/github/5.44.0/docs/resources/branch_protection) (resource)
 - [github_repository.this](https://registry.terraform.io/providers/integrations/github/5.44.0/docs/resources/repository) (resource)
 - [github_repository_file.this](https://registry.terraform.io/providers/integrations/github/5.44.0/docs/resources/repository_file) (resource)
-- [tfe_oauth_client.client](https://registry.terraform.io/providers/hashicorp/tfe/0.48.0/docs/data-sources/oauth_client) (data source)
+- [tfe_registry_module.this](https://registry.terraform.io/providers/hashicorp/tfe/0.51.1/docs/resources/registry_module) (resource)
+- [tfe_oauth_client.client](https://registry.terraform.io/providers/hashicorp/tfe/0.51.1/docs/data-sources/oauth_client) (data source)
 
 ## Outputs
 
