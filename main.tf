@@ -37,10 +37,10 @@ resource "github_repository" "this" {
 
 }
 
-moved {
-  from = 
-  to   = 
-}
+# moved {
+#   from = 
+#   to   = 
+# }
 
 
 
