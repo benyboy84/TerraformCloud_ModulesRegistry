@@ -1,9 +1,3 @@
-# The following block is use to get information about an OAuth client.
-data "tfe_oauth_client" "client" {
-  organization = var.organization_name
-  name         = var.oauth_client_name
-}
-
 # The following code block is used to create GitHub repository.
 
 resource "github_repository" "this" {
@@ -11,7 +5,7 @@ resource "github_repository" "this" {
   for_each = toset(var.modules_name)
 
   name                   = each.value
-  description            = "Terraform module to manage ${element(split("-", each.value), 1) resources.}"
+  description            = "Terraform module to manage ${element(split("-", each.value), 1)} resources."
   visibility             = "public"
   has_issues             = true
   has_discussions        = false
@@ -43,10 +37,18 @@ resource "github_repository" "this" {
 
 }
 
+moved {
+  from = 
+  to   = 
+}
 
 
 
-
+# The following block is use to get information about an OAuth client.
+data "tfe_oauth_client" "client" {
+  organization = var.organization_name
+  name         = var.oauth_client_name
+}
 
 # module "repository" {
 #   source = "./modules/github_repository"
