@@ -20,7 +20,7 @@ resource "github_repository" "this" {
   auto_init              = false
   archived               = false
   archive_on_destroy     = false
-  security_and_analysis = {
+  security_and_analysis {
     # advanced_security = {
     #   status = try(each.value.github_repository.security_and_analysis.advanced_security.status, null)
     # }
