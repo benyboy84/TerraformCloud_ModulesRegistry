@@ -21,8 +21,8 @@ resource "github_repository" "this" {
   archived               = false
   archive_on_destroy     = false
   security_and_analysis {
-    # advanced_security = {
-    #   status = try(each.value.github_repository.security_and_analysis.advanced_security.status, null)
+    # advanced_security {
+    #   status = "enabled"
     # }
     secret_scanning {
       status = "enabled"
@@ -37,10 +37,10 @@ resource "github_repository" "this" {
 
 }
 
-# moved {
-#   from = 
-#   to   = 
-# }
+moved {
+  from = module.repository["terraform-aws-s3"].github_repository.this
+  to   = github_repository.this["terraform-aws-s3"]
+}
 
 
 
