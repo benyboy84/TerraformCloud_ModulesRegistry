@@ -6,7 +6,11 @@ of all your GitHub repository configuration.
 ## Permissions
 
 To manage the GitHub resources, provide a token from an account or a GitHub App with 
-appropriate permissions. It should have `repository creation` and `manage actions repository secrets`.
+appropriate permissions. It should have:
+  *  `Administration`: Read and write
+  *  `Content`: Read and write (allow_merge_commit, allow_rebase_merge, and allow_squash_merge attributes will be ignored, causing confusing diffs.)
+  *  `Metadata`: Read-only
+  *  `Secrets`: Read and write
 
 ## Authentication
 

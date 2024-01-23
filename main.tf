@@ -60,15 +60,15 @@ module "repository" {
 
 # The following code block is used to create module resources in the private registry.
 
-module "modules" {
-  source = "./modules/tfe_module"
+# module "modules" {
+#   source = "./modules/tfe_module"
 
-  for_each = toset(var.modules_name)
+#   for_each = toset(var.modules_name)
 
-  vcs_repo = {
-    display_identifier = "benyboy84/${each.value}"
-    identifier         = "benyboy84/${each.value}"
-    oauth_token_id     = data.tfe_oauth_client.client.oauth_token_id
-  }
+#   vcs_repo = {
+#     display_identifier = "benyboy84/${each.value}"
+#     identifier         = "benyboy84/${each.value}"
+#     oauth_token_id     = data.tfe_oauth_client.client.oauth_token_id
+#   }
 
-}
+# }
