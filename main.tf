@@ -90,7 +90,7 @@ resource "tfe_registry_module" "this" {
   vcs_repo {
     display_identifier = "${var.github_organization_name}/${each.value}"
     identifier         = "${var.github_organization_name}/${each.value}"
-    oauth_token_id     = tfe_oauth_client.test-oauth-client.oauth_token_id
+    oauth_token_id     = data.tfe_oauth_client.client.oauth_token_id
     branch             = "main"
   }
 }
