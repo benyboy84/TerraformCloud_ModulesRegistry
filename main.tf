@@ -58,6 +58,17 @@ resource "github_branch_protection" "this" {
 
 }
 
+resource "github_actions_repository_permissions" "this" {
+  
+  for_each = toset(var.modules_name)
+
+  repository      = github_repository.this[each.value].name
+  allowed_actions = "selected"
+  allowed_actions_config {
+    github_owned_allowed = true
+    patterns_allowed     = ["terraform-docs/gh-actions@*", "super-linter/super-linter@*", "rymndhng/release-on-push-action@*", "hashicorp/*"]
+  }
+}
 
 # The following block is use to get information about an OAuth client.
 data "tfe_oauth_client" "client" {
