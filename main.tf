@@ -6,34 +6,34 @@ resource "github_repository" "this" {
 
   name                   = each.value
   description            = "Terraform module to manage ${element(split("-", each.value), 1)} resources."
-  visibility             = "public"
-  has_issues             = true
-  has_discussions        = false
-  has_projects           = true
-  has_wiki               = true
-  is_template            = false
-  allow_merge_commit     = true
-  allow_squash_merge     = true
-  allow_rebase_merge     = true
-  allow_auto_merge       = false
-  delete_branch_on_merge = true
-  auto_init              = false
-  archived               = false
-  archive_on_destroy     = false
-  security_and_analysis {
-    # advanced_security {
-    #   status = "enabled"
-    # }
-    secret_scanning {
-      status = "enabled"
-    }
-    secret_scanning_push_protection {
-      status = "enabled"
-    }
-  }
-  vulnerability_alerts                    = true
-  ignore_vulnerability_alerts_during_read = false
-  allow_update_branch                     = false
+  # visibility             = "public"
+  # has_issues             = true
+  # has_discussions        = false
+  # has_projects           = true
+  # has_wiki               = true
+  # is_template            = false
+  # allow_merge_commit     = true
+  # allow_squash_merge     = true
+  # allow_rebase_merge     = true
+  # allow_auto_merge       = false
+  # delete_branch_on_merge = true
+  # auto_init              = false
+  # archived               = false
+  # archive_on_destroy     = false
+  # security_and_analysis {
+  #   # advanced_security {
+  #   #   status = "enabled"
+  #   # }
+  #   secret_scanning {
+  #     status = "enabled"
+  #   }
+  #   secret_scanning_push_protection {
+  #     status = "enabled"
+  #   }
+  # }
+  # vulnerability_alerts                    = true
+  # ignore_vulnerability_alerts_during_read = false
+  # allow_update_branch                     = false
 
 }
 
