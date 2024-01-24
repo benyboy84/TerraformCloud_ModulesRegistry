@@ -81,7 +81,7 @@ data "tfe_oauth_client" "client" {
 
 resource "tfe_registry_module" "this" {
 
-  for_each = toset(var.modules_name)
+  for_each = github_repository.this
 
   organization = var.organization_name
 
@@ -90,8 +90,8 @@ resource "tfe_registry_module" "this" {
   }
 
   vcs_repo {
-    display_identifier = "${var.github_organization_name}/${each.value}"
-    identifier         = "${var.github_organization_name}/${each.value}"
+    display_identifier = each.value.full_name
+    identifier         = each.value.full_name
     oauth_token_id     = data.tfe_oauth_client.client.oauth_token_id
     branch             = "main"
   }
