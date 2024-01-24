@@ -87,12 +87,6 @@ No modules.
 
 The following input variables are required:
 
-### <a name="input_github_organization_name"></a> [github\_organization\_name](#input\_github\_organization\_name)
-
-Description: Name of the GitHub organization.
-
-Type: `string`
-
 ### <a name="input_modules_name"></a> [modules\_name](#input\_modules\_name)
 
 Description: A list of modules name to published.
@@ -107,7 +101,7 @@ Type: `string`
 
 ### <a name="input_organization_name"></a> [organization\_name](#input\_organization\_name)
 
-Description: The name of the organization.
+Description: The name of the Terraform Cloud organization.
 
 Type: `string`
 
