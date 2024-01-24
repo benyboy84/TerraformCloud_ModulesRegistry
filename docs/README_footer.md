@@ -1,4 +1,4 @@
-
+<!-- markdownlint-disable-line -->
 > This GitHub repository as well as the Terraform Cloud workspace is manage
 > through Terraform Code.
 >
