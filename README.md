@@ -13,7 +13,13 @@ from an account with `manage modules` access. Alternatively, you can use a
 token from a team with that access instead of a user token.
 
 To manage the GitHub resources, provide a token from an account or a GitHub App with
-appropriate permissions. It should have `repository creation` and `manage actions repository secrets`.
+appropriate permissions. It should have:
+* `Administration`: Read and write
+* `Content`: Read and write</br>
+  *Required, otherwise, allow\_merge\_commit, allow\_rebase\_merge, and allow squash
+  merge attributes will be ignored, causing confusing diffs.*
+* `Metadata`: Read-only
+* `Secrets`: Read and write
 
 ## Authentication
 
@@ -56,17 +62,6 @@ GITHUB\_APP\_INSTALLATION\_ID and GITHUB\_APP\_PEM\_FILE environment variables t
 - branch protection
 - actions repository permissions
 
-## Prerequisite
-
-In order to deploy the configuration from this code, you must first create
-a VCS-Driven workspace in Terraform Cloud. This workspace mut contain an
-environment variable `TFE_TOKEN`.
-
-You can use the code from the [TerraformCloud\_Foundation](https://github.com/benyboy84/TerraformCloud_Foundation) repository.
-
-Variable must be added to the TFC Workspace.
-Variable-set must be linked to the workspace for GitHub Authentication.
-
 ## Documentation
 
 ## Requirements
@@ -87,12 +82,6 @@ No modules.
 
 The following input variables are required:
 
-### <a name="input_github_organization_name"></a> [github\_organization\_name](#input\_github\_organization\_name)
-
-Description: Name of the GitHub organization.
-
-Type: `string`
-
 ### <a name="input_modules_name"></a> [modules\_name](#input\_modules\_name)
 
 Description: A list of modules name to published.
@@ -101,13 +90,13 @@ Type: `list(string)`
 
 ### <a name="input_oauth_client_name"></a> [oauth\_client\_name](#input\_oauth\_client\_name)
 
-Description: Name of the OAuth client.
+Description: The name of the OAuth client.
 
 Type: `string`
 
 ### <a name="input_organization_name"></a> [organization\_name](#input\_organization\_name)
 
-Description: The name of the organization.
+Description: The name of the Terraform Cloud organization.
 
 Type: `string`
 
@@ -122,7 +111,12 @@ The following resources are used by this module:
 - [github_actions_repository_permissions.this](https://registry.terraform.io/providers/integrations/github/5.44.0/docs/resources/actions_repository_permissions) (resource)
 - [github_branch_protection.this](https://registry.terraform.io/providers/integrations/github/5.44.0/docs/resources/branch_protection) (resource)
 - [github_repository.this](https://registry.terraform.io/providers/integrations/github/5.44.0/docs/resources/repository) (resource)
-- [github_repository_file.this](https://registry.terraform.io/providers/integrations/github/5.44.0/docs/resources/repository_file) (resource)
+- [github_repository_file.gitignore](https://registry.terraform.io/providers/integrations/github/5.44.0/docs/resources/repository_file) (resource)
+- [github_repository_file.main](https://registry.terraform.io/providers/integrations/github/5.44.0/docs/resources/repository_file) (resource)
+- [github_repository_file.outputs](https://registry.terraform.io/providers/integrations/github/5.44.0/docs/resources/repository_file) (resource)
+- [github_repository_file.readme](https://registry.terraform.io/providers/integrations/github/5.44.0/docs/resources/repository_file) (resource)
+- [github_repository_file.variables](https://registry.terraform.io/providers/integrations/github/5.44.0/docs/resources/repository_file) (resource)
+- [github_repository_file.versions](https://registry.terraform.io/providers/integrations/github/5.44.0/docs/resources/repository_file) (resource)
 - [tfe_registry_module.this](https://registry.terraform.io/providers/hashicorp/tfe/0.51.1/docs/resources/registry_module) (resource)
 - [tfe_oauth_client.client](https://registry.terraform.io/providers/hashicorp/tfe/0.51.1/docs/data-sources/oauth_client) (data source)
 
@@ -132,4 +126,8 @@ No outputs.
 
 <!-- markdownlint-enable -->
 
+> This GitHub repository as well as the Terraform Cloud workspace is manage
+> through Terraform Code.
+>
+> The code can be found in the [TerraformCloud-Foundation](https://github.com/benyboy84/TerraformCloud-Foundation) repository.
 <!-- END_TF_DOCS -->
