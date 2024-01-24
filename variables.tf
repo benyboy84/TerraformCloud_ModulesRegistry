@@ -4,11 +4,15 @@ variable "organization_name" {
 }
 
 variable "oauth_client_name" {
-  description = "Name of the OAuth client."
+  description = "The name of the OAuth client."
   type        = string
 }
 
 variable "modules_name" {
   description = "A list of modules name to published."
   type        = list(string)
+  validation {
+    condition     = alltrue([for module_name in var.modules_names : !can(regex("^terraform-[a-zA-Z-\-]+-[a-zA-Z-\-]+$", module_name))] : true)
+    error_message = "Module name must use a three-part name format like  `terraform-<PROVIDER>-<NAME>` and contain only letters and hypens."
+  }
 }

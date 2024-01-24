@@ -12,7 +12,13 @@ from an account with `manage modules` access. Alternatively, you can use a
 token from a team with that access instead of a user token.
 
 To manage the GitHub resources, provide a token from an account or a GitHub App with 
-appropriate permissions. It should have `repository creation` and `manage actions repository secrets`.
+appropriate permissions. It should have:
+* `Administration`: Read and write
+* `Content`: Read and write</br>
+  *Required, otherwise, allow_merge_commit, allow_rebase_merge, and allow squash
+  merge attributes will be ignored, causing confusing diffs.*
+* `Metadata`: Read-only
+* `Secrets`: Read and write
 
 ## Authentication
 
@@ -54,14 +60,3 @@ GITHUB_APP_INSTALLATION_ID and GITHUB_APP_PEM_FILE environment variables to auth
 - repository
 - branch protection
 - actions repository permissions
-
-## Prerequisite
-
-In order to deploy the configuration from this code, you must first create
-a VCS-Driven workspace in Terraform Cloud. This workspace mut contain an
-environment variable `TFE_TOKEN`.
-
-You can use the code from the [TerraformCloud_Foundation](https://github.com/benyboy84/TerraformCloud_Foundation) repository.
-
-Variable must be added to the TFC Workspace.
-Variable-set must be linked to the workspace for GitHub Authentication.
