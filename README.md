@@ -107,9 +107,7 @@ No optional inputs.
 
 ## Resources
 
-The following resources are used by this module:
-
-- [github_repository.this](https://registry.terraform.io/providers/integrations/github/5.44.0/docs/resources/repository) (resource)
+No resources.
 
 ## Outputs
 
