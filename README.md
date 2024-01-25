@@ -28,7 +28,7 @@ appropriate permissions. It should have:
 The Terraform Cloud provider requires a Terraform Cloud/Enterprise API token in
 order to manage resources.
 
-- Set the `TFE_TOKEN` environment variable: The provider can read the TFE\_TOKEN environment variable and the token stored there
+* Set the `TFE_TOKEN` environment variable: The provider can read the TFE\_TOKEN environment variable and the token stored there
 to authenticate. Refer to [Managing Variables](https://developer.hashicorp.com/terraform/cloud-docs/workspaces/variables/managing-variables) documentation for more details.
 
 ### GitHub
@@ -37,16 +37,16 @@ The GitHub provider requires a GitHub token or GitHub App installation in order 
 
 There are several ways to provide the required token:
 
-- Set the `token` argument in the provider configuration. You can set the `token` argument in the provider configuration. Use an
+* Set the `token` argument in the provider configuration. You can set the `token` argument in the provider configuration. Use an
 input variable for the token.
-- Set the `GITHUB_TOKEN` environment variable. The provider can read the `GITHUB_TOKEN` environment variable and the token stored there
+* Set the `GITHUB_TOKEN` environment variable. The provider can read the `GITHUB_TOKEN` environment variable and the token stored there
 to authenticate.
 
 There are several ways to provide the required GitHub App installation:
 
-- Set the `app_auth` argument in the provider configuration. You can set the app\_auth argument with the id, installation\_id and pem\_file
+* Set the `app_auth` argument in the provider configuration. You can set the app\_auth argument with the id, installation\_id and pem\_file
 in the provider configuration. The owner parameter is also required in this situation.
-- Set the `GITHUB_APP_ID`, `GITHUB_APP_INSTALLATION_ID` and `GITHUB_APP_PEM_FILE` environment variables. The provider can read the GITHUB\_APP\_ID,
+* Set the `GITHUB_APP_ID`, `GITHUB_APP_INSTALLATION_ID` and `GITHUB_APP_PEM_FILE` environment variables. The provider can read the GITHUB\_APP\_ID,
 GITHUB\_APP\_INSTALLATION\_ID and GITHUB\_APP\_PEM\_FILE environment variables to authenticate.
 
 > Because strings with new lines is not support:</br>
@@ -55,12 +55,12 @@ GITHUB\_APP\_INSTALLATION\_ID and GITHUB\_APP\_PEM\_FILE environment variables t
 
 ## Features
 
-- Manages configuration and life-cycle of Terraform Cloud resources:
-  - private module registry
-- Manages configuration and life-cycle of GitHub resources:
-- repository
-- branch protection
-- actions repository permissions
+* Manages configuration and life-cycle of Terraform Cloud resources:
+  * private module registry
+* Manages configuration and life-cycle of GitHub resources:
+* repository
+* branch protection
+* actions repository permissions
 
 ## Documentation
 
@@ -125,7 +125,7 @@ The following resources are used by this module:
 No outputs.
 
 <!-- markdownlint-enable -->
-
+<!-- markdownlint-disable-line -->
 > This GitHub repository as well as the Terraform Cloud workspace is manage
 > through Terraform Code.
 >
