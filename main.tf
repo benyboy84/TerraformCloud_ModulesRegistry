@@ -53,6 +53,62 @@ resource "github_actions_repository_permissions" "this" {
   }
 }
 
+resource "github_repository_file" "pull_request_template" {
+  for_each            = toset(var.modules_name)
+  repository          = github_repository.this[each.value].name
+  file                = "./github/PULL_REQUEST_TEMPLATE.md"
+  content             = file("./files/.github/PULL_REQUEST_TEMPLATE.md")
+  overwrite_on_create = true
+}
+
+resource "github_repository_file" "dependabot" {
+  for_each            = toset(var.modules_name)
+  repository          = github_repository.this[each.value].name
+  file                = "./github/dependabot.yml"
+  content             = file("./files/.github/dependabot.yml")
+  overwrite_on_create = true
+}
+
+resource "github_repository_file" "markdown_lint" {
+  for_each            = toset(var.modules_name)
+  repository          = github_repository.this[each.value].name
+  file                = "./github/linters/.markdown-lint.yml"
+  content             = file("./files/.github/linters/.markdown-lint.yml")
+  overwrite_on_create = true
+}
+
+resource "github_repository_file" "tflint" {
+  for_each            = toset(var.modules_name)
+  repository          = github_repository.this[each.value].name
+  file                = "./github/linters/.tflint.hcl"
+  content             = file("./files/.github/linters/.tflint.hcl")
+  overwrite_on_create = true
+}
+
+resource "github_repository_file" "yaml-lint" {
+  for_each            = toset(var.modules_name)
+  repository          = github_repository.this[each.value].name
+  file                = "./github/linters/.yaml-lint.yml"
+  content             = file("./files/.github/linters/.yaml-lint.yml")
+  overwrite_on_create = true
+}
+
+resource "github_repository_file" "terrascan" {
+  for_each            = toset(var.modules_name)
+  repository          = github_repository.this[each.value].name
+  file                = "./github/linters/terrascan.toml"
+  content             = file("./files/.github/linters/terrascan.toml")
+  overwrite_on_create = true
+}
+
+resource "github_repository_file" "tfdocs-config" {
+  for_each            = toset(var.modules_name)
+  repository          = github_repository.this[each.value].name
+  file                = "./github/terraform-docs/.tfdocs-config.yml"
+  content             = file("./files/.github/terraform-docs/.tfdocs-config.yml")
+  overwrite_on_create = true
+}
+
 resource "github_repository_file" "gitignore" {
   for_each            = toset(var.modules_name)
   repository          = github_repository.this[each.value].name
