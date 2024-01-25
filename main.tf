@@ -22,6 +22,11 @@ resource "github_repository" "this" {
       status = "enabled"
     }
   }
+  template {
+    owner                = "benyboy84"
+    repository           = "terraform-module-template"
+    include_all_branches = false
+  }
   vulnerability_alerts = true
 }
 
@@ -53,118 +58,36 @@ resource "github_actions_repository_permissions" "this" {
   }
 }
 
-resource "github_repository_file" "pull_request_template" {
-  for_each            = toset(var.modules_name)
-  repository          = github_repository.this[each.value].name
-  file                = "./github/PULL_REQUEST_TEMPLATE.md"
-  content             = file("./files/.github/PULL_REQUEST_TEMPLATE.md")
-  overwrite_on_create = true
+resource "github_issue_label" "major" {
+  for_each    = toset(var.modules_name)
+  repository  = github_repository.this[each.value].name
+  name        = "release:major"
+  color       = "#F9D0C4"
+  description = "Github Release On Push Action"
 }
 
-resource "github_repository_file" "dependabot" {
-  for_each            = toset(var.modules_name)
-  repository          = github_repository.this[each.value].name
-  file                = "./github/dependabot.yml"
-  content             = file("./files/.github/dependabot.yml")
-  overwrite_on_create = true
+resource "github_issue_label" "minor" {
+  for_each    = toset(var.modules_name)
+  repository  = github_repository.this[each.value].name
+  name        = "release:minor"
+  color       = "#4C2010"
+  description = "Github Release On Push Action"
 }
 
-resource "github_repository_file" "markdown_lint" {
-  for_each            = toset(var.modules_name)
-  repository          = github_repository.this[each.value].name
-  file                = "./github/linters/.markdown-lint.yml"
-  content             = file("./files/.github/linters/.markdown-lint.yml")
-  overwrite_on_create = true
+resource "github_issue_label" "patch" {
+  for_each    = toset(var.modules_name)
+  repository  = github_repository.this[each.value].name
+  name        = "release:patch"
+  color       = "#5EB3F2"
+  description = "Github Release On Push Action"
 }
 
-resource "github_repository_file" "tflint" {
-  for_each            = toset(var.modules_name)
-  repository          = github_repository.this[each.value].name
-  file                = "./github/linters/.tflint.hcl"
-  content             = file("./files/.github/linters/.tflint.hcl")
-  overwrite_on_create = true
-}
-
-resource "github_repository_file" "yaml-lint" {
-  for_each            = toset(var.modules_name)
-  repository          = github_repository.this[each.value].name
-  file                = "./github/linters/.yaml-lint.yml"
-  content             = file("./files/.github/linters/.yaml-lint.yml")
-  overwrite_on_create = true
-}
-
-resource "github_repository_file" "terrascan" {
-  for_each            = toset(var.modules_name)
-  repository          = github_repository.this[each.value].name
-  file                = "./github/linters/terrascan.toml"
-  content             = file("./files/.github/linters/terrascan.toml")
-  overwrite_on_create = true
-}
-
-resource "github_repository_file" "tfdocs-config" {
-  for_each            = toset(var.modules_name)
-  repository          = github_repository.this[each.value].name
-  file                = "./github/terraform-docs/.tfdocs-config.yml"
-  content             = file("./files/.github/terraform-docs/.tfdocs-config.yml")
-  overwrite_on_create = true
-}
-
-resource "github_repository_file" "gitignore" {
-  for_each            = toset(var.modules_name)
-  repository          = github_repository.this[each.value].name
-  file                = ".gitignore"
-  content             = file("./files/.gitignore")
-  overwrite_on_create = true
-}
-
-resource "github_repository_file" "main" {
-  for_each            = toset(var.modules_name)
-  repository          = github_repository.this[each.value].name
-  file                = "main.tf"
-  content             = file("./files/main.tf")
-  lifecycle {
-    ignore_changes = [ content ]
-  }
-}
-
-resource "github_repository_file" "outputs" {
-  for_each            = toset(var.modules_name)
-  repository          = github_repository.this[each.value].name
-  file                = "outputs.tf"
-  content             = file("./files/outputs.tf")
-  lifecycle {
-    ignore_changes = [ content ]
-  }
-}
-
-resource "github_repository_file" "readme" {
-  for_each            = toset(var.modules_name)
-  repository          = github_repository.this[each.value].name
-  file                = "README.md"
-  content             = file("./files/README.md")
-  lifecycle {
-    ignore_changes = [ content ]
-  }
-}
-
-resource "github_repository_file" "variables" {
-  for_each            = toset(var.modules_name)
-  repository          = github_repository.this[each.value].name
-  file                = "variables.tf"
-  content             = file("./files/variables.tf")
-  lifecycle {
-    ignore_changes = [ content ]
-  }
-}
-
-resource "github_repository_file" "versions" {
-  for_each            = toset(var.modules_name)
-  repository          = github_repository.this[each.value].name
-  file                = "versions.tf"
-  content             = file("./files/versions.tf")
-  lifecycle {
-    ignore_changes = [ content ]
-  }
+resource "github_issue_label" "bump_version_scheme" {
+  for_each    = toset(var.modules_name)
+  repository  = github_repository.this[each.value].name
+  name        = "bump_version_scheme"
+  color       = "#C5B7A8"
+  description = "Github Release On Push Action"
 }
 
 # The following block is use to get information about an OAuth client.
