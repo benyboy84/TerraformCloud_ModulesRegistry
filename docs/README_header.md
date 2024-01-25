@@ -20,6 +20,7 @@ appropriate permissions. It should have:
   merge attributes will be ignored, causing confusing diffs.*
 * `Metadata`: Read-only
 * `Secrets`: Read and write
+* `Iussue`: Read and write
 
 ## Authentication
 
@@ -42,22 +43,12 @@ input variable for the token.
 * Set the `GITHUB_TOKEN` environment variable. The provider can read the `GITHUB_TOKEN` environment variable and the token stored there
 to authenticate.
 
-There are several ways to provide the required GitHub App installation:
-
-* Set the `app_auth` argument in the provider configuration. You can set the app_auth argument with the id, installation_id and pem_file
-in the provider configuration. The owner parameter is also required in this situation.
-* Set the `GITHUB_APP_ID`, `GITHUB_APP_INSTALLATION_ID` and `GITHUB_APP_PEM_FILE` environment variables. The provider can read the GITHUB_APP_ID,
-GITHUB_APP_INSTALLATION_ID and GITHUB_APP_PEM_FILE environment variables to authenticate.
-
-> Because strings with new lines is not support:</br>
-> use "\\\n" within the `pem_file` argument to replace new line</br>
-> use "\n" within the `GITHUB_APP_PEM_FILE` environment variables to replace new line</br>
-
 ## Features
 
-* Manages configuration and life-cycle of Terraform Cloud resources:
-  * private module registry
 * Manages configuration and life-cycle of GitHub resources:
-* repository
-* branch protection
-* actions repository permissions
+  * Repository
+  * Branch protection
+  * Actions repository permissions
+  * Issue label
+* Manages configuration and life-cycle of Terraform Cloud resources:
+  * Private module registry

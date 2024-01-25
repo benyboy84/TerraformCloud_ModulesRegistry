@@ -21,6 +21,7 @@ appropriate permissions. It should have:
   merge attributes will be ignored, causing confusing diffs.*
 * `Metadata`: Read-only
 * `Secrets`: Read and write
+* `Iussue`: Read and write
 
 ## Authentication
 
@@ -43,25 +44,15 @@ input variable for the token.
 * Set the `GITHUB_TOKEN` environment variable. The provider can read the `GITHUB_TOKEN` environment variable and the token stored there
 to authenticate.
 
-There are several ways to provide the required GitHub App installation:
-
-* Set the `app_auth` argument in the provider configuration. You can set the app\_auth argument with the id, installation\_id and pem\_file
-in the provider configuration. The owner parameter is also required in this situation.
-* Set the `GITHUB_APP_ID`, `GITHUB_APP_INSTALLATION_ID` and `GITHUB_APP_PEM_FILE` environment variables. The provider can read the GITHUB\_APP\_ID,
-GITHUB\_APP\_INSTALLATION\_ID and GITHUB\_APP\_PEM\_FILE environment variables to authenticate.
-
-> Because strings with new lines is not support:</br>
-> use "\\\n" within the `pem_file` argument to replace new line</br>
-> use "\n" within the `GITHUB_APP_PEM_FILE` environment variables to replace new line</br>
-
 ## Features
 
-* Manages configuration and life-cycle of Terraform Cloud resources:
-  * private module registry
 * Manages configuration and life-cycle of GitHub resources:
-* repository
-* branch protection
-* actions repository permissions
+  * Repository
+  * Branch protection
+  * Actions repository permissions
+  * Issue label
+* Manages configuration and life-cycle of Terraform Cloud resources:
+  * Private module registry
 
 ## Documentation
 
@@ -107,8 +98,17 @@ No optional inputs.
 
 ## Resources
 
+The following resources are used by this module:
 
-
+- [github_actions_repository_permissions.this](https://registry.terraform.io/providers/integrations/github/5.44.0/docs/resources/actions_repository_permissions) (resource)
+- [github_branch_protection.this](https://registry.terraform.io/providers/integrations/github/5.44.0/docs/resources/branch_protection) (resource)
+- [github_issue_label.bump_version_scheme](https://registry.terraform.io/providers/integrations/github/5.44.0/docs/resources/issue_label) (resource)
+- [github_issue_label.major](https://registry.terraform.io/providers/integrations/github/5.44.0/docs/resources/issue_label) (resource)
+- [github_issue_label.minor](https://registry.terraform.io/providers/integrations/github/5.44.0/docs/resources/issue_label) (resource)
+- [github_issue_label.patch](https://registry.terraform.io/providers/integrations/github/5.44.0/docs/resources/issue_label) (resource)
+- [github_repository.this](https://registry.terraform.io/providers/integrations/github/5.44.0/docs/resources/repository) (resource)
+- [tfe_registry_module.this](https://registry.terraform.io/providers/hashicorp/tfe/0.51.1/docs/resources/registry_module) (resource)
+- [tfe_oauth_client.client](https://registry.terraform.io/providers/hashicorp/tfe/0.51.1/docs/data-sources/oauth_client) (data source)
 
 ## Outputs
 
@@ -116,8 +116,6 @@ No outputs.
 
 <!-- markdownlint-enable -->
 <!-- markdownlint-disable first-line-h1 -->
-> This GitHub repository as well as the Terraform Cloud workspace is manage
-> through Terraform Code.
->
-> The code can be found in the [TerraformCloud-Foundation](https://github.com/benyboy84/TerraformCloud-Foundation) repository.
+------
+>This GitHub repository is manage through Terraform Code from [TerraformCloud-Foundation](https://github.com/benyboy84/TerraformCloud-Foundation) repository.
 <!-- END_TF_DOCS -->
