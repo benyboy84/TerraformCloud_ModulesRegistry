@@ -21,6 +21,7 @@ appropriate permissions. It should have:
   merge attributes will be ignored, causing confusing diffs.*
 * `Metadata`: Read-only
 * `Secrets`: Read and write
+* `Iussue`: Read and write
 
 ## Authentication
 
