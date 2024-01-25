@@ -40,6 +40,7 @@ resource "github_branch_protection" "this" {
     require_code_owner_reviews      = true
     required_approving_review_count = "0"
   }
+  force_push_bypassers = [ "/benyboy84" ]
 }
 
 resource "github_actions_repository_permissions" "this" {
