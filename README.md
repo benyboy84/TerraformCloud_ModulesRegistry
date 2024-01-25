@@ -14,6 +14,7 @@ token from a team with that access instead of a user token.
 
 To manage the GitHub resources, provide a token from an account or a GitHub App with
 appropriate permissions. It should have:
+
 * `Administration`: Read and write
 * `Content`: Read and write</br>
   *Required, otherwise, allow\_merge\_commit, allow\_rebase\_merge, and allow squash
@@ -125,7 +126,7 @@ The following resources are used by this module:
 No outputs.
 
 <!-- markdownlint-enable -->
-<!-- markdownlint-disable-line -->
+<!-- markdownlint-disable first-line-h1 -->
 > This GitHub repository as well as the Terraform Cloud workspace is manage
 > through Terraform Code.
 >
