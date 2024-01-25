@@ -11,8 +11,9 @@ To manage the module in the private registry from that code, provide a token
 from an account with `manage modules` access. Alternatively, you can use a
 token from a team with that access instead of a user token.
 
-To manage the GitHub resources, provide a token from an account or a GitHub App with 
+To manage the GitHub resources, provide a token from an account or a GitHub App with
 appropriate permissions. It should have:
+
 * `Administration`: Read and write
 * `Content`: Read and write</br>
   *Required, otherwise, allow_merge_commit, allow_rebase_merge, and allow squash
