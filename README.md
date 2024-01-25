@@ -109,6 +109,17 @@ No optional inputs.
 
 The following resources are used by this module:
 
+- [github_actions_repository_permissions.this](https://registry.terraform.io/providers/integrations/github/5.44.0/docs/resources/actions_repository_permissions) (resource)
+- [github_branch_protection.this](https://registry.terraform.io/providers/integrations/github/5.44.0/docs/resources/branch_protection) (resource)
+- [github_issue_label.bump_version_scheme](https://registry.terraform.io/providers/integrations/github/5.44.0/docs/resources/issue_label) (resource)
+- [github_issue_label.major](https://registry.terraform.io/providers/integrations/github/5.44.0/docs/resources/issue_label) (resource)
+- [github_issue_label.minor](https://registry.terraform.io/providers/integrations/github/5.44.0/docs/resources/issue_label) (resource)
+- [github_issue_label.patch](https://registry.terraform.io/providers/integrations/github/5.44.0/docs/resources/issue_label) (resource)
+- [github_repository.this](https://registry.terraform.io/providers/integrations/github/5.44.0/docs/resources/repository) (resource)
+- [tfe_registry_module.this](https://registry.terraform.io/providers/hashicorp/tfe/0.51.1/docs/resources/registry_module) (resource)
+- [tfe_oauth_client.client](https://registry.terraform.io/providers/hashicorp/tfe/0.51.1/docs/data-sources/oauth_client) (data source)
+
+## Outputs
 
 No outputs.
 
