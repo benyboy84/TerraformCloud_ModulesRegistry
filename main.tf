@@ -62,7 +62,7 @@ resource "github_issue_label" "major" {
   for_each    = toset(var.modules_name)
   repository  = github_repository.this[each.value].name
   name        = "release:major"
-  color       = "#F9D0C4"
+  color       = "F9D0C4"
   description = "Github Release On Push Action"
 }
 
@@ -70,7 +70,7 @@ resource "github_issue_label" "minor" {
   for_each    = toset(var.modules_name)
   repository  = github_repository.this[each.value].name
   name        = "release:minor"
-  color       = "#4C2010"
+  color       = "4C2010"
   description = "Github Release On Push Action"
 }
 
@@ -78,7 +78,7 @@ resource "github_issue_label" "patch" {
   for_each    = toset(var.modules_name)
   repository  = github_repository.this[each.value].name
   name        = "release:patch"
-  color       = "#5EB3F2"
+  color       = "5EB3F2"
   description = "Github Release On Push Action"
 }
 
@@ -86,7 +86,7 @@ resource "github_issue_label" "bump_version_scheme" {
   for_each    = toset(var.modules_name)
   repository  = github_repository.this[each.value].name
   name        = "bump_version_scheme"
-  color       = "#C5B7A8"
+  color       = "C5B7A8"
   description = "Github Release On Push Action"
 }
 
