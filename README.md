@@ -107,7 +107,7 @@ No optional inputs.
 
 ## Resources
 
-
+No resources.
 
 ## Outputs
 
